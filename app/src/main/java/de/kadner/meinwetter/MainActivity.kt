@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.currentCompositionLocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import de.kadner.meinwetter.model.WeatherViewModel
 import de.kadner.meinwetter.ui.WeatherScreen
 import de.kadner.meinwetter.ui.theme.MeinWetterTheme
 
@@ -20,7 +22,7 @@ class MainActivity : ComponentActivity()
             MeinWetterTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    WeatherScreen()
+                    WeatherScreen( WeatherViewModel( this ) )
                 }
             }
         }
@@ -35,6 +37,6 @@ class MainActivity : ComponentActivity()
 fun GreetingPreview()
 {
     MeinWetterTheme {
-        WeatherScreen()
+        WeatherScreen( WeatherViewModel( MainActivity() ) )
     }
 }

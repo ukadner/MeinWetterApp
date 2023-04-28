@@ -10,4 +10,4 @@ class WeatherData (
 
 class Info ( val description: String, val icon: String )
 
-class Temp ( val temp: Double )
+class Temp ( var temp: Double )

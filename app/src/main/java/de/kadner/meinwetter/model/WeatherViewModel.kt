@@ -26,6 +26,12 @@ class WeatherViewModel( val app: Context ) : ViewModel()
         viewModelScope.launch()
         {
             _weatherData.value = weatherRepository.getWeather( city )
+            val t = _weatherData.value?.temp?.temp
+            if ( null != t )
+            {
+                _weatherData.value?.temp?.temp = t - 273.15
+            }
+
         }
 
     }
